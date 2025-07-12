@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'FE Engschrift';
+  src: url('/font/GlNummernschildMtl-LrZZ.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@media (min-width: 600px) {
+  .main-responsive {
+    margin-left: 220px !important;
+    width: calc(100vw - 220px) !important;
+  }
+}
+@media (max-width: 599px) {
+  .main-responsive {
+    margin-left: 0 !important;
+    width: 100vw !important;
+  }
+}
+
+/* Global styles can be added here */
