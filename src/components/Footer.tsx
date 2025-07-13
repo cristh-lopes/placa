@@ -12,7 +12,6 @@ export default function Footer() {
         width: "100%",
         height: 48,
         bgcolor: "background.paper",
-        // Remover borda, adicionar sombra leve
         boxShadow: "0 -2px 8px 0 rgba(0,0,0,0.08)",
         display: "flex",
         alignItems: "center",

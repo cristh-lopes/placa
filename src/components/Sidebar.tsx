@@ -28,24 +28,44 @@ export default function Sidebar({ open, onClose }: { open?: boolean, onClose?: (
         }}
       >
         <Box sx={{ position: 'absolute', top: 8, right: 8, zIndex: 1301 }}>
-          <IconButton onClick={() => { 
-  if (onClose) { 
-    onClose(); 
-    console.log('Fechar sidebar chamado'); 
-  } 
-}} size="large" aria-label="Fechar menu">
+          <IconButton 
+            onClick={onClose} 
+            size="large" 
+            aria-label="Fechar menu"
+            sx={{
+              color: theme.palette.text.primary,
+              '&:hover': {
+                backgroundColor: theme.palette.mode === 'light' ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.1)',
+              }
+            }}
+          >
             <CloseIcon />
           </IconButton>
         </Box>
         <List sx={{ mt: 5 }}>
           <ListItem disablePadding>
-            <ListItemButton selected={true} onClick={onClose}>
+            <ListItemButton 
+              selected={true} 
+              onClick={onClose}
+              sx={{
+                '&:hover': {
+                  backgroundColor: theme.palette.mode === 'light' ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.1)',
+                }
+              }}
+            >
               <ListItemText primary="Página Inicial" />
             </ListItemButton>
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-            <ListItemButton onClick={onClose}>
+            <ListItemButton 
+              onClick={onClose}
+              sx={{
+                '&:hover': {
+                  backgroundColor: theme.palette.mode === 'light' ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.1)',
+                }
+              }}
+            >
               <ListItemText primary="Outra Página" />
             </ListItemButton>
           </ListItem>
@@ -75,13 +95,26 @@ export default function Sidebar({ open, onClose }: { open?: boolean, onClose?: (
     >
       <List>
         <ListItem disablePadding>
-          <ListItemButton selected={true}>
+          <ListItemButton 
+            selected={true}
+            sx={{
+              '&:hover': {
+                backgroundColor: theme.palette.mode === 'light' ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.1)',
+              }
+            }}
+          >
             <ListItemText primary="Página Inicial" />
           </ListItemButton>
         </ListItem>
         <Divider />
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton
+            sx={{
+              '&:hover': {
+                backgroundColor: theme.palette.mode === 'light' ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.1)',
+              }
+            }}
+          >
             <ListItemText primary="Outra Página" />
           </ListItemButton>
         </ListItem>

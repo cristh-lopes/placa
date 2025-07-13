@@ -13,15 +13,10 @@ export default function ThemeRegistry({ children }: { children: React.ReactNode 
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Detecta o tema do sistema no client
-    const systemTheme =
-      window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
+    const systemTheme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     setMode(systemTheme);
     setMounted(true);
 
-    // Atualiza se o usuário mudar o tema do sistema
     const mql = window.matchMedia("(prefers-color-scheme: dark)");
     const listener = (e: MediaQueryListEvent) => setMode(e.matches ? "dark" : "light");
     mql.addEventListener("change", listener);
@@ -42,32 +37,20 @@ export default function ThemeRegistry({ children }: { children: React.ReactNode 
         palette: {
           mode,
           primary: {
-            main: mode === "light" ? "#1976d2" : "#3f51b5", // Indigo no dark
+            main: mode === "light" ? "#2196F3" : "#64B5F6",
           },
           secondary: {
-            main: mode === "light" ? "#9c27b0" : "#ce93d8",
+            main: mode === "light" ? "#42A5F5" : "#90CAF9",
           },
           background: {
-            default: mode === "light" ? "#f5f5f5" : "#121212",
-            paper: mode === "light" ? "#fff" : "#1e1e1e",
+            default: mode === "light" ? "#f5f7fa" : "#121212",
+            paper: mode === "light" ? "#ffffff" : "#1e1e1e",
           },
           text: {
-            primary: mode === "light" ? "#1a1a1a" : "#fff",
+            primary: mode === "light" ? "#1a1a1a" : "#ffffff",
             secondary: mode === "light" ? "#555" : "#bdbdbd",
           },
           divider: mode === "light" ? "#e0e0e0" : "#333",
-        },
-        components: {
-          MuiButton: {
-            styleOverrides: {
-              root: {
-                color: mode === "dark" ? "#fff" : undefined,
-              },
-              containedPrimary: {
-                color: "#fff",
-              },
-            },
-          },
         },
         typography: {
           fontFamily: 'Inter, Roboto, Arial, sans-serif',

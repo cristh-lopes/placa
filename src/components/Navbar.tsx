@@ -17,19 +17,20 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
         zIndex: 1300,
         width: '100%',
         boxShadow: "0 2px 8px 0 rgba(0,0,0,0.10)",
-        background: mode === "dark"
-          ? theme.palette.background.paper
-          : theme.palette.primary.main,
+        background: mode === "dark" ? theme.palette.background.paper : theme.palette.primary.main,
         transition: 'background 0.2s',
       }}
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          {/* Botão de menu só no mobile */}
           {onMenuClick && (
             <IconButton
               onClick={onMenuClick}
-              sx={{ color: '#fff', display: { xs: 'inline-flex', sm: 'none' }, mr: 1 }}
+              sx={{ 
+                color: '#fff', 
+                display: { xs: 'inline-flex', sm: 'none' }, 
+                mr: 1 
+              }}
               edge="start"
               aria-label="menu"
             >
@@ -41,7 +42,15 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
           </Typography>
         </Box>
         <Box>
-          <IconButton onClick={toggleColorMode} sx={{ color: '#fff' }}>
+          <IconButton 
+            onClick={toggleColorMode} 
+            sx={{ 
+              color: '#fff',
+              '&:hover': {
+                backgroundColor: 'rgba(255,255,255,0.1)',
+              }
+            }}
+          >
             {mode === "light" ? <DarkModeIcon /> : <LightModeIcon />}
           </IconButton>
         </Box>
